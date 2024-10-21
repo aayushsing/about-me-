@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Diwali</title>
+  <style>
+    /* Full-screen styling */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      background: #000;
+    }
+
+    /* Video background styling */
+    .video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the video covers the entire screen without distortion */
+    }
+
+    /* Diwali message styling */
+    .diwali-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      color: #fff;
+      text-align: center;
+      opacity: 1;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .diwali-message h1 {
+      font-size: 6vw; /* Responsive font size for mobile */
+      margin: 0;
+      animation: glow 2s infinite alternate;
+      color: #ffdf00;
+      text-shadow: 0 0 15px #ff9a00;
+    }
+
+    .diwali-message h2 {
+      font-size: 4vw; /* Responsive font size for mobile */
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    /* Glow animation for the main message */
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ffdf00, 0 0 20px #ffdf00, 0 0 30px #ff9a00, 0 0 40px #ff9a00;
+      }
+      to {
+        text-shadow: 0 0 30px #ffdf00, 0 0 40px #ff6500, 0 0 50px #ff9a00, 0 0 60px #ff6500;
+      }
+    }
+
+    /* Fade-in effect for the message */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Fade-out effect for the entire screen before redirect */
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* Fade-out the whole screen */
+    .fade-out {
+      animation: fadeOut 1s ease-in-out forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video background -->
+  <div class="video-container">
+    <video id="diwaliVideo" autoplay muted>
+      <source src="./welcome ani.mp4" type="video/mp4"> <!-- Replace with your MP4 video -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Diwali Message -->
+  <div class="diwali-message" id="diwaliMessage">
+    <h1> Wish you a Happy Diwali!</h1>
+    <h2>Welcome</h2>
+  </div>
+
+  <script>
+    // Get the video element
+    var video = document.getElementById("diwaliVideo");
+
+    // Listen for the video to end
+    video.addEventListener('ended', function() {
+      // Add fade-out effect to the screen
+      document.querySelector('body').classList.add('fade-out');
+      // After fade-out, redirect to main site
+      setTimeout(function() {
+        window.location.href = './index.html'; // Replace with your main website URL
+      }, 1000); // Wait for fade-out animation to finish
+    });
+  </script>
+
+</body>
+</html>
