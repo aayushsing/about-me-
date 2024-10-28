@@ -355,7 +355,96 @@
                     <a href="https://www.linkedin.com/in/aayush-singh-rajput/" target="_blank"><i class="bx bxl-linkedin"></i></a>
                 </div>
             </div>
-            
+        </section>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Visitor Counter Styling */
+        .visitor-counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            background: #000; /* Black background */
+            padding: 20px;
+            border-top: 2px solid #222;
+            color: #fff; /* White color for "Visitors:" label */
+        }
+
+        /* Individual Digit Style */
+        .digit {
+            display: inline-block;
+            margin: 0 2px;
+            font-weight: bold;
+            color: transparent;
+            background: linear-gradient(45deg, #ff5f6d, #ffc371, #47e1e8, #47a8e8, #d65c8a);
+            background-size: 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: colorShift 3s linear infinite, bounce 1.2s ease;
+        }
+
+        /* Keyframes for bounce and color change animations */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @keyframes colorShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Visitor Counter Section -->
+    <div class="visitor-counter">
+        Visitors: <span id="visitorCount"></span>
+    </div>
+
+    <script>
+        // Function to animate the count with randomized digit sizes
+        function animateCount(end) {
+            let count = 0;
+            const display = document.getElementById('visitorCount');
+            const interval = setInterval(() => {
+                display.innerHTML = count
+                    .toString()
+                    .split("")
+                    .map(digit => {
+                        // Random size between 1.2em and 2em
+                        const fontSize = (Math.random() * 0.8 + 1.2).toFixed(2) + 'em';
+                        return `<span class="digit" style="font-size: ${fontSize};">${digit}</span>`;
+                    })
+                    .join("");
+                if (count < end) {
+                    count++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 150); // Slow down count to 150ms per increment
+        }
+
+        // Check if visitor count exists in local storage
+        let visitorCount = localStorage.getItem('visitorCount');
+        if (!visitorCount) {
+            visitorCount = 1; // First visit
+        } else {
+            visitorCount = parseInt(visitorCount) + 1; // Increment count
+        }
+
+        // Save updated count back to local storage
+        localStorage.setItem('visitorCount', visitorCount);
+
+        // Animate the count display
+        animateCount(visitorCount);
+    </script>  
         </section>
         
         <div class="last-text">
