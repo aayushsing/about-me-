@@ -12,91 +12,92 @@
         <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
         <style>
             /* Full-screen styling for Diwali greeting */
-            .diwali-container {
-                display: none; /* Initially hide the greeting */
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 9999; /* Ensure it appears above other content */
-                background: rgba(0, 0, 0, 0.8); /* Dark overlay */
-            }
-    
-            /* Video background styling */
-            .video-container {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-                overflow: hidden;
-            }
-    
-            video {
-                width: 100%;
-                height: 100%;
-                object-fit: cover; /* Ensures the video covers the entire screen without distortion */
-            }
-    
-            /* Diwali message styling */
-            .diwali-message {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 2;
-                color: #fff;
-                text-align: center;
-                animation: fadeIn 1.5s ease-in-out;
-            }
-    
-            .diwali-message h1 {
-                font-size: 6vw; /* Responsive font size for mobile */
-                margin: 0;
-                animation: glow 2s infinite alternate;
-                color: #ffdf00;
-                text-shadow: 0 0 15px #ff9a00;
-            }
-    
-            .diwali-message h2 {
-                font-size: 4vw; /* Responsive font size for mobile */
-                margin-top: 20px;
-                color: #fff;
-            }
-    
-            /* Glow animation for the main message */
-            @keyframes glow {
-                from {
-                    text-shadow: 0 0 10px #ffdf00, 0 0 20px #ffdf00, 0 0 30px #ff9a00, 0 0 40px #ff9a00;
-                }
-                to {
-                    text-shadow: 0 0 30px #ffdf00, 0 0 40px #ff6500, 0 0 50px #ff9a00, 0 0 60px #ff6500;
-                }
-            }
-    
-            /* Fade-in effect for the message */
-            @keyframes fadeIn {
-                0% { opacity: 0; }
-                100% { opacity: 1; }
-            }
-    
-            /* Fade-out effect for the entire screen before redirect */
-            @keyframes fadeOut {
-                0% { opacity: 1; }
-                100% { opacity: 0; }
-            }
-    
-            /* Fade-out the whole screen */
-            .fade-out {
-                animation: fadeOut 1s ease-in-out forwards;
-            }
-              body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+           .diwali-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.85);
         }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .diwali-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .diwali-message h1 {
+            font-size: 6vw;
+            margin: 0;
+            animation: glow 2s infinite alternate;
+            color: #b11e22;
+            text-shadow: 0 0 15px #b11e22;
+        }
+
+        .diwali-message h2 {
+            font-size: 4vw;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #b11e22, 0 0 20px #b11e22;
+            }
+            to {
+                text-shadow: 0 0 30px #a00c14, 0 0 50px #8b0000;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .fade-out {
+            animation: fadeOut 1s ease-in-out forwards;
+        }
+
+        #skipBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background: #b11e22;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
         .social-sidebar {
             position: fixed;
             left: -60px;
@@ -108,6 +109,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             transition: left 0.5s ease-in-out;
         }
+
         .social-sidebar a {
             display: block;
             color: #fff;
@@ -116,19 +118,19 @@
             padding: 15px;
             transition: all 0.3s ease;
         }
+
         .social-sidebar a:hover {
             background: #555;
             border-radius: 10px;
         }
+
         .show {
             left: 0;
         }
-        </style>
-
-        
-    </head>
-    <body>
-         <div class="social-sidebar" id="socialSidebar">
+    </style>
+</head>
+<body>
+    <div class="social-sidebar" id="socialSidebar">
         <a href="https://wa.me/your_number" target="_blank" style="background: #25D366;">
             <i class="fab fa-whatsapp"></i>
         </a>
@@ -136,22 +138,51 @@
             <i class="fab fa-facebook-f"></i>
         </a>
     </div>
-     <!-- Diwali Greeting Container -->
+
     <div class="diwali-container" id="diwaliGreeting">
-        <!-- Video background -->
         <div class="video-container">
-            <video id="diwaliVideo" autoplay muted>
+            <video id="diwaliVideo" autoplay muted playsinline>
                 <source src="video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-
-        <!-- Diwali Message -->
-        <div class="diwali-message" id="diwaliMessage">
-            <h1>Wish you a Happy NEW YEAR 2025</h1>
+        <div class="diwali-message">
+            <h1>Happy Operation SINDOOR</h1>
             <h2>Welcome</h2>
+            <button id="skipBtn">Skip</button>
         </div>
     </div>
+
+    <script>
+        const greeting = document.getElementById("diwaliGreeting");
+        const skipBtn = document.getElementById("skipBtn");
+
+        function showGreeting() {
+            greeting.style.display = "block";
+            setTimeout(() => {
+                hideGreetingAndRedirect();
+            }, 6000);
+        }
+
+        function hideGreetingAndRedirect() {
+            greeting.classList.add("fade-out");
+            setTimeout(() => {
+                greeting.style.display = "none";
+            }, 1000);
+        }
+
+        skipBtn.addEventListener("click", () => {
+            hideGreetingAndRedirect();
+        });
+
+        window.addEventListener("load", () => {
+            const hasSeenGreeting = sessionStorage.getItem("seenGreeting");
+            if (!hasSeenGreeting) {
+                sessionStorage.setItem("seenGreeting", "true");
+                showGreeting();
+            }
+        });
+    </script>
 
         
         <header class="header">
