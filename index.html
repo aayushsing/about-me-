@@ -1,588 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Portfolio</title>
-        <link rel="shortcut icon" type="image/png" href="ic.png">
-        <link rel="stylesheet" href='./style.css'>
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-        <style>
-    
-            /* Full-screen styling for Diwali greeting */
-           .diwali-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            background: rgba(0, 0, 0, 0.85);
-        }
-
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .diwali-message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            color: #fff;
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .diwali-message h1 {
-            font-size: 6vw;
-            margin: 0;
-            animation: glow 2s infinite alternate;
-            color: #b11e22;
-            text-shadow: 0 0 15px #b11e22;
-        }
-
-        .diwali-message h2 {
-            font-size: 4vw;
-            margin-top: 20px;
-            color: #fff;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #b11e22, 0 0 20px #b11e22;
-            }
-            to {
-                text-shadow: 0 0 30px #a00c14, 0 0 50px #8b0000;
-            }
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        .fade-out {
-            animation: fadeOut 1s ease-in-out forwards;
-        }
-
-        #skipBtn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background: #b11e22;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-        }
-
-        .social-sidebar {
-            position: fixed;
-            left: -60px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #333;
-            padding: 10px;
-            border-radius: 0 10px 10px 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: left 0.5s ease-in-out;
-        }
-
-        .social-sidebar a {
-            display: block;
-            color: #fff;
-            text-align: center;
-            font-size: 24px;
-            padding: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .social-sidebar a:hover {
-            background: #555;
-            border-radius: 10px;
-        }
-
-        .show {
-            left: 0;
-        }
-
-
-        
-         
-    </style>
-</head>
-<body>
-    <div class="social-sidebar" id="socialSidebar">
-        <a href="https://wa.me/your_number" target="_blank" style="background: #25D366;">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://www.facebook.com/yourprofile" target="_blank" style="background: #1877F2;">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-    </div>
-
-    <div class="diwali-container" id="diwaliGreeting">
-        <div class="video-container">
-            <video id="diwaliVideo" autoplay muted playsinline>
-                <source src="video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="diwali-message">
-            <h1>Happy Operation SINDOOR</h1>
-            <h2>Welcome</h2>
-            <button id="skipBtn">Skip</button>
-        </div>
-    </div>
-
-    <script>
-        const greeting = document.getElementById("diwaliGreeting");
-        const skipBtn = document.getElementById("skipBtn");
-
-        function showGreeting() {
-            greeting.style.display = "block";
-            setTimeout(() => {
-                hideGreetingAndRedirect();
-            }, 6000);
-        }
-
-        function hideGreetingAndRedirect() {
-            greeting.classList.add("fade-out");
-            setTimeout(() => {
-                greeting.style.display = "none";
-            }, 1000);
-        }
-
-        skipBtn.addEventListener("click", () => {
-            hideGreetingAndRedirect();
-        });
-
-        window.addEventListener("load", () => {
-            const hasSeenGreeting = sessionStorage.getItem("seenGreeting");
-            if (!hasSeenGreeting) {
-                sessionStorage.setItem("seenGreeting", "true");
-                showGreeting();
-            }
-        });
-    </script>
-
-        
-        <header class="header">
-            
-            <a href="#" class="logo">Portfolio</a>
-            <nav class="navbar" id="myLinks">
-                <a href="#Home" style="--i:1" class="active" >Home</a>
-                <a href="#About" style="--i:2">About</a>
-                <a href="#Skills" style="--i:3">Skills</a>
-                <a href="#Projects" style="--i:4">Projects</a>
-                <a href="#Contact" style="--i:5">Contact</a>
-            </nav>
-        </header>
-
-
-        <section class="home" id="Home">
-            <div class="home-content">
-                
-                <h3>Hello, It's Me</h3>
-                <h1>AAYUSH SINGH</h1>
-                <h4 style="--i:6">I'm a Engineering student who is<br>
-                    passionate in <span class="text"></span></h4>
-                
-                <div class="img">
-                     <img src="./my photoaayush01.jpeg" class="responsive">
-                </div>
-
-                <div class="home-sci">
-                    <a href="https://www.linkedin.com/in/aayush-singh-rajput/"style="--i:7" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                    <a href="https://www.instagram.com/reetwik_singh?igsh=MWF2d2oxNWlvYXhmMQ=="style="--i:8" target="_blank"><i class='bx bxl-instagram' ></i></a>
-                    <a href=""style="--i:9" target="_blank"><i class='bx bxl-youtube'></i></a>
-                    <a href="https://github.com/aayushsing"style="--i:10" target="_blank"><i class='bx bxl-github'></i></a>
-                </div>
-                <a href="https://drive.google.com/file/d/1T9DJI-6jetuETAmLwCsw-PxjwVgTXIgd/view?usp=drivesdk" style="--i:11" class="btn-box" target="_blank">Download Resume</a>
-            </div>
-        </section>
-         <section>
-            <div class="about" id="About">
-                <div class="about-img">
-                    <img src="Aayush photo.jpg" class="abt-res">
-                </div>
-                <div class="about-text">
-                    <h2>About <span>Me</span></h2>
-                    <p> I am a diligent and passionate Engineering student specializing in Computer Science and Communication Engineering,
-                    with a strong foundation in Python, SQL, Java, HTML, C programming, and Cybersecurity. Alongside my academic journey 
-                    I have gained hands-on experience in Artificial Intelligence, Machine Learning,and Natural Language Processing (NLP) 
-                    using tools and frameworks like OpenAI GPT  TensorFlow, Flask, Firebase, and computer vision libraries such as OpenCV.
-                    <br><br>
-                    My technical learning has translated into real-world applications through various projects.
-                    Notably, I developed a <strong>"Drowsiness Detection & Alerting System"</strong>
-                    that uses AI-based computer vision techniques to detect fatigue and alert drivers in real-time, enhancing road safety.
-                    <br><br>
-                    Additionally, I built a <strong>personal AI chatbot clone</strong>—an intelligent virtual assistant modeled after myself,
-                    capable of engaging in natural conversations using OpenAI GPT models, text-to-speech/speech-to-text engines,
-                    and custom voice and personality emulation. This project involved working with REST APIs,
-                    user authentication, voice data training, and real-time messaging, showcasing my ability to integrate multiple technologies
-                    for an innovative AI-powered solution.
-                    <br><br>
-                    I am actively seeking opportunities where I can utilize my AI expertise,
-                    software development skills, and project experience to contribute meaningfully to forward-thinking organizations.
-                    </p>
-                    <br>
-                    <a href="https://drive.google.com/file/d/1T9DJI-6jetuETAmLwCsw-PxjwVgTXIgd/view?usp=drivesdk" style="--i:11" class="abtbtn-box" target="_blank">Download Resume</a>
-                    </p>
-                </div>
-            </div>
-         </section>
-           
-       
-        
-        <section id="Skills">
-            <h1 class="subtitle">My <span>Skills</span></h1>
-            <div class="sec">
-                <div class="container1">
-                    <h1 class="heading1">Technical Skills</h1>
-                    <div class="Technical-bars">
-
-                        <div class="bar"><i class='bx bxl-html5' style="color: #c9332e;"></i>
-                            <div class="info">
-                                <span>HTML <span class="addhtml"></span></span>
-                            </div>
-                            <div class="progress-line html">
-                                <span></span>
-                            </div>
-                        </div>
-
-                        <div class="bar"><i class='bx bxl-css3' style="color: #147bbc;"></i>
-                            <div class="info">
-                                <span>CSS <span class="addcss"></span></span>
-                            </div>
-                            <div class="progress-line css">
-                                <span></span>
-                            </div>
-                        </div>
-
-                        <div class="bar"><i class='bx bxl-python' style="color: #b0bc1e;"></i>
-                            <div class="info">
-                                <span>Python <span class="addpy"></span></span>
-                            </div>
-                            <div class="progress-line python">
-                                <span></span>
-                            </div>
-                        </div>
-
-                        <div class="bar"><i class='bx bxl-java' style="color: #c95d2e;"></i>
-                            <div class="info">
-                                <span>Java <span class="addjava"></span></span>
-                            </div>
-                            <div class="progress-line java">
-                                <span></span>
-                            </div>
-                        </div>
-
-                        <div class="bar"><i class='bx bxl-c-plus-plus'style="color: #3db2fc;"></i>
-                            <div class="info">
-                                <span>C/C++ <span class="addc"></span></span>
-                            </div>
-                            <div class="progress-line cpls">
-                                <span></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="container2">
-                    <h1 class="heading1">Professional Skills</h1>
-                    <div class="radial-bars">
-                        <div class="radial-bar">
-                            <svg x="0px" y="0px" viewBox="0 0 200 200">
-                                <circle class="progress-bar" cx="100" cy="80" r="80"></circle>
-                                <circle class="path path-1" cx="100" cy="80" r="80"></circle>
-                            </svg>
-                            <div class="percentage">60%</div>
-                            <div class="text">Problem Solving</div>
-                        </div>
-
-                        <div class="radial-bar">
-                            <svg x="0px" y="0px" viewBox="0 0 200 200">
-                                <circle class="progress-bar" cx="100" cy="80" r="80"></circle>
-                                <circle class="path path-2" cx="100" cy="80" r="80"></circle>
-                            </svg>
-                            <div class="percentage">70%</div>
-                            <div class="text">Creativity</div>
-                        </div>
-
-                        <div class="radial-bar">
-                            <svg x="0px" y="0px" viewBox="0 0 200 200">
-                                <circle class="progress-bar" cx="100" cy="80" r="80"></circle>
-                                <circle class="path path-3" cx="100" cy="80" r="80"></circle>
-                            </svg>
-                            <div class="percentage">80%</div>
-                            <div class="text">Communication</div>
-                        </div>
-
-                        <div class="radial-bar">
-                            <svg x="0px" y="0px" viewBox="0 0 200 200">
-                                <circle class="progress-bar" cx="100" cy="80" r="80"></circle>
-                                <circle class="path path-4" cx="100" cy="80" r="80"></circle>
-                            </svg>
-                            <div class="percentage">90%</div>
-                            <div class="text">Teamwork</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="Projects">
-            <div id="portfolio" class="services">
-                <div class="main-text" id="serv">
-                    <h2>My <span>Projects</span></h2>
-                    <div class="serv-container">
-                        <div class="row">
-                            <img src="./FMD.png">
-                            <div class="layer">
-                                <h5>Face Mask Detection</h5>
-                                <p>Face mask of the people are detected by using OpenCV, Python and find out the person without mask.</p>
-
-                                <a href="#"><i class='bx bxs-face-mask' style="color: aliceblue;"></i></a>
-
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <img src="./DD.png">
-                            <div class="layer">
-                                <h5>Drowsiness Detection</h5>
-                                <p>The face of the driver is captured and eye is detected by OpenCV, Python. If eye is closed alarm rings.</p>
-
-                                <a href="#"><i class='bx bxs-low-vision' style="color: aliceblue;"></i></a>
-                                
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <img src="./DA.png">
-                            <div class="layer">
-                                <h5>Desktop Application</h5>
-                                <p>A windows application to manage the work of the staff’s in the company by using Python Tkinter and SQL.</p>
-
-                                <a href="#"><i class='bx bx-desktop' style="color: aliceblue;"></i></a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="Services">
-            <div class="project">
-                <div class="container">
-                    <h1 class="sub-title">My <span>Services</span></h1>
-                    <div class="prj-list">
-                        <div>
-                            <i class='bx bx-code' style="color: #00eeff;"></i>
-                            <h2>Web Development</h2>
-                            <p>Plan, create and code internet sites and web pages with modern and artful design.</p>
-                            
-                        </div>
-                        <div>
-                            <i class='bx bx-cube' style="color: #00eeff;"></i>
-                            <h2>UI / UX Design</h2>
-                            <p>Specialized in creating clean, artful design that are both intuitive and functional.</p>
-                            
-                        </div>
-                        <div>
-                            <i class='bx bxl-android' style="color: #00eeff;"></i>
-                            <h2>Software Development</h2>
-                            <p>Mobile application developer with knowledge of Java and Android Studio.</p>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-         <section class="experience">
-         
-        <section class="contacts" id="Contact">
-            <div class="contact-text">
-                <h2>Contact <span>Me</span></h2>
-                <h4>Let's Work Together</h4>
-                <div class="contact-list">
-                    <li><i class='bx bxs-send'></i>Aayushsingh1234512@gmail.com</li>
-                    <li><i class="bx bxs-phone-call" ></i>6393835263</li>
-                </div>
-                <div class="contact-icons">
-                    <a href="https://github.com/aayushsing" target="_blank"><i class='bx bxl-github'></i></a>
-                    <a href=""><i class='bx bxl-youtube'></i></a>
-                    <a href="https://www.instagram.com/reetwik_singh_rajput_0101?igsh=ZGUzMzM3NWJiOQ==" target="_blank"><i class="bx bxl-instagram"></i></a>
-                    <a href="https://www.instagram.com/reetwik_singh?igsh=MWF2d2oxNWlvYXhmMQ==" target="_blank"><i class="bx bxl-linkedin"></i></a>
-                </div>
-            </div>
-        </section>
-        <!DOCTYPE html>
-<html lang="en">
 <head>
-    <style>
-        /* Visitor Counter Styling */
-        .visitor-counter {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            font-size: 2em;
-            font-weight: bold;
-            background: #000; /* Black background */
-            padding: 20px;
-            border-top: 2px solid #222;
-            color: #fff; /* White color for "Visitors:" label */
-        }
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – Aayush Singh</title>
+  <link rel="shortcut icon" type="image/png" href="ic.png" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    :root{
+      --bg:#000;--card:#0d0d0d;--muted:#b7bec5;--accent:#0ef;--text:#fff;--textDark:#081b29;--border:#1f1f1f;
+      --radius:16px;--shadow:0 8px 30px rgba(0,0,0,.35)
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+    img,svg,video{max-width:100%;display:block;height:auto}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;cursor:pointer}
 
-        /* Individual Digit Style */
-        .digit {
-            display: inline-block;
-            margin: 0 2px;
-            font-weight: bold;
-            color: transparent;
-            background: linear-gradient(45deg, #ff5f6d, #ffc371, #47e1e8, #47a8e8, #d65c8a);
-            background-size: 200%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: colorShift 3s linear infinite, bounce 1.2s ease;
-        }
+    /* Header / Nav */
+    .header{position:sticky;top:0;z-index:100;background:#151515;border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;width:min(100%,1100px);margin-inline:auto;padding:12px clamp(16px,4vw,40px)}
+    .logo{font-weight:800;letter-spacing:.08em}
+    .menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid #2a2a2a;border-radius:10px;background:#0b0b0b}
+    .menu-toggle span{width:20px;height:2px;background:#fff;position:relative}
+    .menu-toggle span::before,.menu-toggle span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#fff}
+    .menu-toggle span::before{top:-6px}.menu-toggle span::after{top:6px}
+    .navbar{display:none;flex-direction:column;gap:8px;padding:10px;background:#0e0e0e;border:1px solid var(--border);border-radius:12px;position:absolute;right:16px;top:64px}
+    .navbar a{padding:10px 12px;border-radius:10px;font-weight:600}
+    .navbar a:hover{background:rgba(14,255,255,.12);color:var(--accent)}
+    .navbar.open{display:flex}
+    @media (min-width:900px){.menu-toggle{display:none}.navbar{display:flex!important;flex-direction:row;gap:6px;position:static;border:0;background:transparent}}
 
-        /* Keyframes for bounce and color change animations */
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
+    /* Social sidebar */
+    .social-sidebar{position:fixed;left:-60px;top:50%;transform:translateY(-50%);background:#333;padding:10px;border-radius:0 10px 10px 0;box-shadow:0 0 10px rgba(0,0,0,.3);transition:left .4s ease;z-index:90}
+    .social-sidebar a{display:block;color:#fff;text-align:center;font-size:22px;padding:12px}
+    .social-sidebar a:hover{background:#555;border-radius:8px}
+    .social-sidebar.show{left:0}
 
-        @keyframes colorShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-    </style>
+    /* Sections */
+    .container{width:min(100%,1100px);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+
+    /* Hero */
+    .home{display:grid;grid-template-columns:1fr;align-items:center;min-height:70svh;padding-block:clamp(24px,6vw,80px);gap:24px}
+    .home h3{font-size:clamp(18px,4.5vw,28px);font-weight:600;color:var(--muted);margin:0}
+    .home h1{font-size:clamp(28px,6vw,56px);line-height:1.1;margin:.1em 0}
+    .home h4{font-size:clamp(16px,4vw,22px);font-weight:500;margin:.2em 0}
+    .home .cta{display:inline-block;margin-top:14px;padding:12px 18px;border-radius:999px;background:var(--accent);color:var(--textDark);font-weight:800}
+    .hero-img{border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+    @media (min-width:900px){.home{grid-template-columns:1.1fr .9fr;min-height:82svh}}
+
+    /* About */
+    .about{padding-block:clamp(36px,7vw,90px)}
+    .about h2{font-size:clamp(24px,5vw,48px);margin:0 0 12px}
+    .about-grid{display:grid;grid-template-columns:1fr;gap:18px}
+    .about-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:clamp(16px,3.2vw,24px);box-shadow:var(--shadow)}
+    @media (min-width:900px){.about-grid{grid-template-columns:1fr 1fr}}
+
+    /* Skills */
+    .section-title{text-align:center;font-size:clamp(24px,5vw,48px);margin:0 0 20px}
+    .skills{padding-block:clamp(36px,7vw,90px)}
+    .bars{display:grid;grid-template-columns:1fr;gap:14px}
+    .bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px}
+    .bar .info{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+    .progress{height:8px;background:#0a0a0a;border-radius:999px;overflow:hidden}
+    .progress>span{display:block;height:100%;background:var(--accent);width:0}
+    .w-90{width:90%}.w-80{width:80%}.w-75{width:75%}.w-50{width:50%}
+
+    /* Projects */
+    .projects{padding-block:clamp(36px,7vw,90px)}
+    .grid{display:grid;grid-template-columns:1fr;gap:18px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .card img{aspect-ratio:4/3;object-fit:cover}
+    .card-body{padding:16px}
+    .card h3{margin:0 0 8px;font-size:20px}
+    .chip{display:inline-block;padding:6px 10px;background:rgba(14,255,255,.12);border:1px solid rgba(14,255,255,.4);border-radius:999px;font-size:12px;margin-right:6px}
+    .card p{color:#cfd6db}
+    .card a.button{align-self:flex-start;margin:12px 16px 16px;padding:10px 14px;border-radius:12px;background:var(--accent);color:var(--textDark);font-weight:800}
+    @media (min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (min-width:1080px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+    /* Contact */
+    .contacts{padding-block:clamp(36px,7vw,90px)}
+    .contact-grid{display:grid;grid-template-columns:1fr;gap:16px}
+    .contact-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+    @media (min-width:900px){.contact-grid{grid-template-columns:repeat(3,1fr)}}
+
+    /* Footer / Misc */
+    footer{border-top:1px solid var(--border);color:#b8c0c7}
+    .footer-inner{display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;padding:24px}
+    .top{position:fixed;bottom:2rem;left:1rem;display:flex;opacity:0;transition:all .4s}
+    .top.active{opacity:1}
+    .top i{color:#000;background:var(--accent);font-size:20px;padding:10px;border-radius:.5rem}
+
+    /* Greeting Overlay */
+    .diwali-container{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85)}
+    .video-container{position:absolute;inset:0;overflow:hidden}
+    .video-container video{width:100%;height:100%;object-fit:cover}
+    .diwali-message{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:16px}
+    .diwali-message h1{font-size:clamp(24px,7vw,64px);color:#b11e22;text-shadow:0 0 15px #b11e22;animation:glow 2s infinite alternate}
+    .diwali-message h2{font-size:clamp(18px,5vw,40px)}
+    #skipBtn{margin-top:10px;padding:10px 16px;font-size:1rem;background:#b11e22;border:none;border-radius:8px;color:#fff}
+    @keyframes glow{from{text-shadow:0 0 10px #b11e22,0 0 20px #b11e22}to{filter:saturate(1.15);text-shadow:0 0 30px #a00c14,0 0 50px #8b0000}}
+    .fade-out{animation:fadeOut 1s ease-in-out forwards}
+    @keyframes fadeOut{0%{opacity:1}100%{opacity:0}}
+
+    /* Visitor counter */
+    .visitor-counter{display:flex;justify-content:center;align-items:center;font-size:1.6rem;font-weight:700;background:#000;padding:16px;border-top:1px solid #222;color:#fff}
+    .digit{display:inline-block;margin:0 2px;background:linear-gradient(45deg,#ff5f6d,#ffc371,#47e1e8,#47a8e8,#d65c8a);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:colorShift 3s linear infinite,bounce 1.2s ease}
+    @keyframes bounce{0%,20%,50%,80%,100%{transform:translateY(0)}40%{transform:translateY(-10px)}60%{transform:translateY(-5px)}}
+    @keyframes colorShift{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+    @media (prefers-reduced-motion: reduce){.digit{animation:none}}
+  </style>
 </head>
 <body>
 
-    <!-- Visitor Counter Section -->
-    <div class="visitor-counter">
-        Visitors: <span id="visitorCount"></span>
+  <!-- Social Sidebar -->
+  <div class="social-sidebar" id="socialSidebar" aria-hidden="true">
+    <a href="https://wa.me/your_number" target="_blank" rel="noopener" style="background:#25D366" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener" style="background:#1877F2" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+  </div>
+
+  <!-- Greeting Overlay (Operation SINDOOR) -->
+  <div class="diwali-container" id="diwaliGreeting" aria-modal="true" role="dialog">
+    <div class="video-container">
+      <!-- Replace video.mp4 with your file -->
+      <video id="diwaliVideo" autoplay muted playsinline>
+        <source src="video.mp4" type="video/mp4" />
+      </video>
     </div>
+    <div class="diwali-message">
+      <div>
+        <h1>Happy Operation SINDOOR</h1>
+        <h2>Welcome</h2>
+        <button id="skipBtn">Skip</button>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        // Function to animate the count with randomized digit sizes
-        function animateCount(end) {
-            let count = 0;
-            const display = document.getElementById('visitorCount');
-            const interval = setInterval(() => {
-                display.innerHTML = count
-                    .toString()
-                    .split("")
-                    .map(digit => {
-                        // Random size between 1.2em and 2em
-                        const fontSize = (Math.random() * 0.8 + 1.2).toFixed(2) + 'em';
-                        return `<span class="digit" style="font-size: ${fontSize};">${digit}</span>`;
-                    })
-                    .join("");
-                if (count < end) {
-                    count++;
-                } else {
-                    clearInterval(interval);
-                }
-            }, 150); // Slow down count to 150ms per increment
-        }
+  <!-- Header -->
+  <header class="header">
+    <div class="nav">
+      <a href="#home" class="logo">Portfolio</a>
+      <button class="menu-toggle" aria-label="Toggle navigation"><span></span></button>
+      <nav class="navbar" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-        // Check if visitor count exists in local storage
-        let visitorCount = localStorage.getItem('visitorCount');
-        if (!visitorCount) {
-            visitorCount = 1; // First visit
-        } else {
-            visitorCount = parseInt(visitorCount) + 1; // Increment count
-        }
+  <!-- Hero -->
+  <section id="home" class="home container">
+    <div>
+      <h3>Hello, It's Me</h3>
+      <h1>AAYUSH SINGH</h1>
+      <h4>I'm an Engineering student who is passionate in <span class="text"></span></h4>
+      <a href="#projects" class="cta">See Projects</a>
+    </div>
+    <div class="hero-img">
+      <!-- Replace with your photo path -->
+      <img src="./my photoaayush01.jpeg" alt="Portrait of Aayush" />
+    </div>
+  </section>
 
-        // Save updated count back to local storage
-        localStorage.setItem('visitorCount', visitorCount);
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About <span style="color:var(--accent)">Me</span></h2>
+      <div class="about-grid">
+        <article class="about-card">
+          <p>I am a diligent and passionate Engineering student specializing in Computer Science and Communication Engineering, with a strong foundation in Python, SQL, Java, HTML, C programming, and Cybersecurity. I have hands-on experience in AI/ML and NLP using OpenAI GPT, TensorFlow, Flask, Firebase, and OpenCV.</p>
+        </article>
+        <article class="about-card">
+          <p>Highlighted projects include a <strong>Drowsiness Detection & Alerting System</strong> using computer vision for driver safety, and a <strong>personal AI chatbot clone</strong> integrating TTS/STT, authentication, and real-time messaging.</p>
+        </article>
+      </div>
+      <p class="container" style="padding-inline:0;margin-top:12px">
+        <a class="cta" href="https://drive.google.com/file/d/1T9DJI-6jetuETAmLwCsw-PxjwVgTXIgd/view?usp=drivesdk" target="_blank" rel="noopener">Download Resume</a>
+      </p>
+    </div>
+  </section>
 
-        // Animate the count display
-        animateCount(visitorCount);
-    </script>  
-        </section>
-        
-        <div class="last-text">
-            <p>Developed by Aayush <i class='bx bx-copyright' style="color: white;"></i> 2024</p>
+  <!-- Skills -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">My <span style="color:var(--accent)">Skills</span></h2>
+      <div class="bars">
+        <div class="bar"><div class="info"><span>HTML</span><span>90%</span></div><div class="progress"><span class="w-90" data-w="90%"></span></div></div>
+        <div class="bar"><div class="info"><span>CSS</span><span>80%</span></div><div class="progress"><span class="w-80" data-w="80%"></span></div></div>
+        <div class="bar"><div class="info"><span>Python</span><span>75%</span></div><div class="progress"><span class="w-75" data-w="75%"></span></div></div>
+        <div class="bar"><div class="info"><span>Java</span><span>50%</span></div><div class="progress"><span class="w-50" data-w="50%"></span></div></div>
+        <div class="bar"><div class="info"><span>C/C++</span><span>50%</span></div><div class="progress"><span class="w-50" data-w="50%"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects (includes Smart Blind Stick) -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title">My <span style="color:var(--accent)">Projects</span></h2>
+      <div class="grid">
+        <article class="card">
+          <img src="./FMD.png" alt="Face Mask Detection" />
+          <div class="card-body">
+            <h3>Face Mask Detection</h3>
+            <div><span class="chip">OpenCV</span><span class="chip">Python</span></div>
+            <p>Detects whether a person is wearing a face mask using classical CV and ML.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="./DD.png" alt="Drowsiness Detection" />
+          <div class="card-body">
+            <h3>Drowsiness Detection</h3>
+            <div><span class="chip">OpenCV</span><span class="chip">Python</span></div>
+            <p>Monitors eye state; triggers an alarm if eye-closure persists to reduce driver fatigue risks.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="./DA.png" alt="Desktop Application" />
+          <div class="card-body">
+            <h3>Desktop Application</h3>
+            <div><span class="chip">Tkinter</span><span class="chip">SQLite</span></div>
+            <p>Windows app for staff operations built with Python Tkinter and SQL.</p>
+          </div>
+        </article>
+        <!-- New IoT Project Card -->
+        <article class="card">
+          <!-- Replace with your own build photo -->
+          <img src="https://images.unsplash.com/photo-1536104968055-4d61aa56f46a?q=80&w=1600&auto=format&fit=crop" alt="Arduino prototype with sensors" />
+          <div class="card-body">
+            <h3>Smart Blind Stick (Ultrasonic)</h3>
+            <div><span class="chip">Arduino</span><span class="chip">HC-SR04</span><span class="chip">Assistive</span></div>
+            <p>Alerts users about obstacles using sonar; audible and haptic feedback intensifies as objects get closer.</p>
+          </div>
+          <a class="button" href="#smart-blind-stick">View Details</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Smart Blind Stick Details -->
+  <section id="smart-blind-stick" class="projects">
+    <div class="container">
+      <h2 class="section-title">Smart Blind Stick – Details</h2>
+      <article class="card" style="grid-column:1/-1">
+        <div class="card-body">
+          <h3>Bill of Materials</h3>
+          <ul>
+            <li>Arduino Uno/Nano</li>
+            <li>Ultrasonic Sensor HC-SR04 (Trig/Echo)</li>
+            <li>5V Active buzzer and/or vibration motor with NPN transistor + diode</li>
+            <li>Power: 5V power bank (recommended)</li>
+            <li>Jumper wires, light stick frame</li>
+          </ul>
+          <h3>Pin Map (Uno)</h3>
+          <ul>
+            <li>HC-SR04 Trig → D9</li>
+            <li>HC-SR04 Echo → D8</li>
+            <li>Buzzer → D5</li>
+            <li>Vibration Motor → D6 via NPN transistor (1k base, diode across motor)</li>
+            <li>5V and GND → common rails</li>
+          </ul>
+          <h3>Logic</h3>
+          <ol>
+            <li>Measure distance every 50 ms</li>
+            <li>&lt; 120 cm → slow beep</li>
+            <li>&lt; 80 cm → medium beep + weak vibration</li>
+            <li>&lt; 40 cm → rapid beep + strong vibration</li>
+          </ol>
+
+          <h3>Wiring Table</h3>
+          <div style="overflow:auto">
+            <table style="width:100%;border-collapse:collapse;border:1px solid var(--border)">
+              <thead>
+                <tr style="background:rgba(14,255,255,.08)">
+                  <th style="text-align:left;padding:8px;border:1px solid var(--border)">Component</th>
+                  <th style="text-align:left;padding:8px;border:1px solid var(--border)">Pin</th>
+                  <th style="text-align:left;padding:8px;border:1px solid var(--border)">Arduino (Uno)</th>
+                  <th style="text-align:left;padding:8px;border:1px solid var(--border)">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding:8px;border:1px solid var(--border)">HC-SR04</td><td style="padding:8px;border:1px solid var(--border)">Vcc</td><td style="padding:8px;border:1px solid var(--border)">5V</td><td style="padding:8px;border:1px solid var(--border)">Power</td></tr>
+                <tr><td style="padding:8px;border:1px solid var(--border)">HC-SR04</td><td style="padding:8px;border:1px solid var(--border)">Gnd</td><td style="padding:8px;border:1px solid var(--border)">GND</td><td style="padding:8px;border:1px solid var(--border)">Ground</td></tr>
+                <tr><td style="padding:8px;border:1px solid var(--border)">HC-SR04</td><td style="padding:8px;border:1px solid var(--border)">Trig</td><td style="padding:8px;border:1px solid var(--border)">D9</td><td style="padding:8px;border:1px solid var(--border)">Output from Arduino</td></tr>
+                <tr><td style="padding:8px;border:1px solid var(--border)">HC-SR04</td><td style="padding:8px;border:1px solid var(--border)">Echo</td><td style="padding:8px;border:1px solid var(--border)">D8</td><td style="padding:8px;border:1px solid var(--border)">Input to Arduino</td></tr>
+                <tr><td style="padding:8px;border:1px solid var(--border)">Active Buzzer</td><td style="padding:8px;border:1px solid var(--border)">+</td><td style="padding:8px;border:1px solid var(--border)">D5</td><td style="padding:8px;border:1px solid var(--border)">Optional 220 Ω series resistor</td></tr>
+                <tr><td style="padding:8px;border:1px solid var(--border)">Active Buzzer</td><td style="padding:8px;border:1px solid var(--border)">−</td><td style="padding:8px;border:1px solid var(--border)">GND</td><td style="padding:8px;border:1px solid var(--border)"></td></tr>
+                <tr><td style="padding:8px;border:1px solid var(--border)">Vibration Motor</td><td style="padding:8px;border:1px solid var(--border)">+</td><td style="padding:8px;border:1px solid var(--border)">+5V</td><td style="padding:8px;border:1px solid var(--border)">Diode across motor: cathode to +5V</td></tr>
+                <tr><td style="padding:8px;border:1px solid var(--border)">Vibration Motor</td><td style="padding:8px;border:1px solid var(--border)">−</td><td style="padding:8px;border:1px solid var(--border)">Collector of NPN</td><td style="padding:8px;border:1px solid var(--border)">Use 2N2222/S8050</td></tr>
+                <tr><td style="padding:8px;border:1px solid var(--border)">NPN Transistor</td><td style="padding:8px;border:1px solid var(--border)">Base</td><td style="padding:8px;border:1px solid var(--border)">D6 via 1 kΩ</td><td style="padding:8px;border:1px solid var(--border)">PWM control</td></tr>
+                <tr><td style="padding:8px;border:1px solid var(--border)">NPN Transistor</td><td style="padding:8px;border:1px solid var(--border)">Emitter</td><td style="padding:8px;border:1px solid var(--border)">GND</td><td style="padding:8px;border:1px solid var(--border)"></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="margin-top:10px;color:#cfd6db">Safety: confirm common ground between all modules. Keep wires strain-relieved along the stick.</p>
+
+          <details>
+            <summary style="cursor:pointer;font-weight:800;margin-top:12px">Arduino Code (Uno/Nano) – Non-blocking beeps + PWM vibration</summary>
+            <pre style="white-space:pre-wrap;background:#0b0b0b;border:1px solid var(--border);border-radius:12px;padding:12px;overflow:auto"><code>// Smart Blind Stick – Ultrasonic (HC-SR04) + Buzzer + Vibration Motor
+// Author: Aayush Singh (portfolio project)
+// Board: Arduino Uno / Nano (ATmega328P)
+//
+// Wiring (Uno/Nano):
+//   HC-SR04 Vcc  -> 5V
+//   HC-SR04 GND  -> GND
+//   HC-SR04 Trig -> D9
+//   HC-SR04 Echo -> D8
+//   Buzzer (+)   -> D5 (active buzzer; optional 220 Ω series resistor)
+//   Buzzer (−)   -> GND
+//   Vibration motor (+) -> +5V
+//   Vibration motor (−) -> Collector of NPN (e.g., 2N2222/S8050)
+//   NPN Emitter  -> GND
+//   NPN Base     -> D6 via 1 kΩ resistor
+//   Diode (1N4148/1N4007) across motor: Anode to NPN collector, Cathode to +5V
+//
+// Behavior:
+//   - Measures distance ~20 times per second
+//   - Three distance zones: FAR (<120 cm), MID (<80 cm), NEAR (<40 cm)
+//   - Beep cadence and vibration strength increase as obstacles get closer
+//   - Non-blocking (millis()), so tone() chirps are timed without delay()
+//
+// Safety:
+//   - Ensure common ground for all modules
+//   - Strain-relieve and secure wires along the stick
+//   - Do not power motors directly from an I/O pin; always use a transistor
+
+const uint8_t TRIG_PIN   = 9;
+const uint8_t ECHO_PIN   = 8;
+const uint8_t BUZZER_PIN = 5;   // uses tone()
+const uint8_t VIB_PIN    = 6;   // PWM pin -> NPN base via 1k resistor
+
+const uint16_t NEAR_TH_CM = 40;   // < 40 cm => rapid alerts
+const uint16_t MID_TH_CM  = 80;   // < 80 cm => medium alerts
+const uint16_t FAR_TH_CM  = 120;  // <120 cm => slow alerts
+const uint16_t MAX_CM     = 300;  // ignore beyond this
+
+const uint16_t BEEP_FREQ_HZ   = 2200; // buzzer tone
+const uint8_t  VIB_NEAR_PWM   = 255;  // 0..255
+const uint8_t  VIB_MID_PWM    = 160;
+const uint8_t  VIB_FAR_PWM    = 80;
+const uint8_t  VIB_OFF_PWM    = 0;
+
+const uint16_t SAMPLE_INTERVAL_MS = 50;  // distance sample period
+const uint16_t BEEP_NEAR_MS       = 120; // cadence for near
+const uint16_t BEEP_MID_MS        = 250; // cadence for mid
+const uint16_t BEEP_FAR_MS        = 450; // cadence for far
+const uint8_t  BEEP_LEN_MS        = 50;  // chirp length
+
+unsigned long lastSampleMs = 0;
+unsigned long lastBeepMs   = 0;
+int distanceCM             = 999;
+
+int readDistanceCM() {
+  digitalWrite(TRIG_PIN, LOW); delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH); delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+  unsigned long dur = pulseIn(ECHO_PIN, HIGH, 25000UL);
+  if (dur == 0) return 999;
+  float cm = dur / 58.0f;
+  if (cm < 1 || cm > MAX_CM) return 999;
+  return (int)cm;
+}
+
+int median3DistanceCM() {
+  int a = readDistanceCM();
+  int b = readDistanceCM();
+  int c = readDistanceCM();
+  if (a > b) { int t = a; a = b; b = t; }
+  if (b > c) { int t = b; b = c; c = t; }
+  if (a > b) { int t = a; a = b; b = t; }
+  return b;
+}
+
+void setup() {
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+  pinMode(VIB_PIN, OUTPUT);
+}
+
+void loop() {
+  unsigned long now = millis();
+
+  if (now - lastSampleMs >= SAMPLE_INTERVAL_MS) {
+    lastSampleMs = now;
+    distanceCM = median3DistanceCM();
+  }
+
+  uint8_t vib = 0;
+  if (distanceCM < NEAR_TH_CM)        vib = 255;
+  else if (distanceCM < MID_TH_CM)    vib = 160;
+  else if (distanceCM < FAR_TH_CM)    vib = 80;
+  else                                vib = 0;
+  analogWrite(VIB_PIN, vib);
+
+  uint16_t beepInterval = 0;
+  if (distanceCM < NEAR_TH_CM)        beepInterval = BEEP_NEAR_MS;
+  else if (distanceCM < MID_TH_CM)    beepInterval = BEEP_MID_MS;
+  else if (distanceCM < FAR_TH_CM)    beepInterval = BEEP_FAR_MS;
+
+  if (beepInterval > 0 && (now - lastBeepMs >= beepInterval)) {
+    lastBeepMs = now;
+    tone(BUZZER_PIN, BEEP_FREQ_HZ, BEEP_LEN_MS);
+  }
+}
+</code></pre>
+          </details>
         </div>
-        <a href="#Home" class="top"><i class='bx bx-up-arrow-alt' ></i></a>
+      </article>
+    </div>
+  </section>
 
-        <script src="./script.js"></script>
-        <script>
-            // Show Diwali greeting on page load
-            window.onload = function() {
-                document.getElementById('diwaliGreeting').style.display = 'block';
-            };
-    
-            // Get the video element
-            var video = document.getElementById("diwaliVideo");
-    
-            // Listen for the video to end
-            video.addEventListener('ended', function() {
-                // Add fade-out effect to the greeting
-                document.getElementById('diwaliGreeting').classList.add('fade-out');
-                // After fade-out, hide the greeting
-                setTimeout(function() {
-                    document.getElementById('diwaliGreeting').style.display = 'none';
-                }, 1000); // Wait for fade-out animation to finish
-            });
-              let sidebar = document.getElementById("socialSidebar");
-        let hideTimeout;
+  <!-- Contact -->
+  <section id="contact" class="contacts">
+    <div class="container">
+      <h2 class="section-title">Contact <span style="color:var(--accent)">Me</span></h2>
+      <div class="contact-grid">
+        <div class="contact-card"><strong>Email:</strong>&nbsp;Aayushsingh1234512@gmail.com</div>
+        <div class="contact-card"><strong>Phone:</strong>&nbsp;6393835263</div>
+        <div class="contact-card"><strong>GitHub:</strong>&nbsp;<a href="https://github.com/aayushsing" target="_blank" rel="noopener">@aayushsing</a></div>
+      </div>
+      <p style="margin-top:10px">
+        <a href="https://github.com/aayushsing" target="_blank" rel="noopener" class="cta" style="background:transparent;border:1px solid rgba(14,255,255,.6);color:var(--accent)"><i class='bx bxl-github'></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/aayush-singh-rajput/" target="_blank" rel="noopener" class="cta" style="background:transparent;border:1px solid rgba(14,255,255,.6);color:var(--accent)"><i class='bx bxl-linkedin'></i> LinkedIn</a>
+      </p>
+    </div>
+  </section>
 
-        document.addEventListener("mousemove", (event) => {
-            if (event.clientX < 50) { // If the cursor moves near the left side
-                sidebar.classList.add("show");
-                clearTimeout(hideTimeout);
-                hideTimeout = setTimeout(() => {
-                    sidebar.classList.remove("show");
-                }, 3000); // Sidebar hides after 3 seconds
-            }
-        });
+  <!-- Visitor Counter -->
+  <div class="visitor-counter">Visitors: <span id="visitorCount"></span></div>
 
-        window.onload = function() {
-            let speech = new SpeechSynthesisUtterance("Welcome to Ayush Singh Portfolio,  you can see here all projects , and his updates about him");
-            speech.rate = 1;
-            speech.pitch = 1;
-            speech.volume = 1;
-            window.speechSynthesis.speak(speech);
-        };
-        </script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner container">
+      <small>Developed by Aayush © 2024</small>
+    </div>
+  </footer>
 
-    </body>  
+  <!-- Back to top -->
+  <a href="#home" class="top" aria-label="Back to top"><i class='bx bx-up-arrow-alt'></i></a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      // Mobile nav
+      const btn=document.querySelector('.menu-toggle');
+      const nav=document.querySelector('.navbar');
+      if(btn && nav){btn.addEventListener('click',()=>nav.classList.toggle('open'))}
+
+      // Animate skill bars
+      requestAnimationFrame(()=>{document.querySelectorAll('.progress>span').forEach(s=>s.style.width=s.dataset.w||'0%')})
+
+      // Back to top
+      const toTop=document.querySelector('.top');
+      window.addEventListener('scroll',()=>{if(window.pageYOffset>100){toTop.classList.add('active')}else{toTop.classList.remove('active')}});
+
+      // Social sidebar hover-near edge
+      const sidebar=document.getElementById('socialSidebar');
+      let hideTimeout;
+      document.addEventListener('mousemove',(e)=>{
+        if(e.clientX<50){sidebar.classList.add('show');clearTimeout(hideTimeout);hideTimeout=setTimeout(()=>sidebar.classList.remove('show'),3000)}
+      });
+
+      // Typed.js
+      new Typed('.text',{strings:['Programming','Cybersecurity','Web Development','Data Analyst'],typeSpeed:100,backSpeed:100,backDelay:1000,loop:true});
+
+      // Visitor counter (local only)
+      let c=localStorage.getItem('visitorCount');c=c?parseInt(c,10)+1:1;localStorage.setItem('visitorCount',c);
+      const display=document.getElementById('visitorCount');
+      function animateCount(end){let n=0;const int=setInterval(()=>{display.innerHTML=String(n).split('').map(d=>`<span class="digit">${d}</span>`).join('');if(n<end){n++}else{clearInterval(int)}},120)}
+      animateCount(c);
+
+      // Greeting overlay (only once per session)
+      const greeting=document.getElementById('diwaliGreeting');
+      const video=document.getElementById('diwaliVideo');
+      const skip=document.getElementById('skipBtn');
+      if(!sessionStorage.getItem('seenGreeting')){
+        greeting.style.display='block';
+        sessionStorage.setItem('seenGreeting','true');
+        const close=()=>{greeting.classList.add('fade-out');setTimeout(()=>greeting.style.display='none',1000)};
+        video?.addEventListener('ended',close);
+        skip?.addEventListener('click',close);
+      }
+
+      // Optional voice greeting (run once on first user click for autoplay policies)
+      const speakOnce=()=>{
+        if('speechSynthesis' in window){
+          const u=new SpeechSynthesisUtterance("Welcome to Aayush Singh's portfolio. Explore projects and updates.");
+          u.rate=1;u.pitch=1;u.volume=1;window.speechSynthesis.speak(u);
+        }
+        document.removeEventListener('click',speakOnce);
+      };
+      document.addEventListener('click',speakOnce,{once:true});
+    });
+  </script>
+</body>
 </html>
-
-
-
-
